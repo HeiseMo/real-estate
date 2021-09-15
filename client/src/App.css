@@ -174,7 +174,7 @@ input:focus {
 }
 .card {
   width: 29%;
-  max-height: 425px;
+  min-height: 425px;
   margin: 2%;
   display: flex;
   min-height: min-content;
