@@ -14,8 +14,7 @@ class Home extends Component {
       search: "",
       location: "All",
       propertyType: "All",
-      max: 9000000,
-      min: 0,
+      status: "All"
     };
     this.updateSearch = this.updateSearch.bind(this);
   }
@@ -36,6 +35,7 @@ class Home extends Component {
           <Listings
             properties={this.state.properties}
             search={this.state.search}
+            status ={this.state.status}
             location={this.state.location}
             propertyType={this.state.propertyType}
             min={this.state.min}

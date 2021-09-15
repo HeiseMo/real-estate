@@ -6,8 +6,7 @@ class Filter extends Component {
     this.state = {
       location: "",
       propertyType: "",
-      max: 9000000,
-      min: 0,
+      status: ""
     };
   }
 
@@ -25,6 +24,9 @@ class Filter extends Component {
     let uniquePropertyType = myProperties
       .map((item) => item.type)
       .filter((value, index, self) => self.indexOf(value) === index);
+      let uniqueStatus = myProperties
+      .map((item) => item.status)
+      .filter((value, index, self) => self.indexOf(value) === index);
 
     return (
       <>
@@ -35,13 +37,13 @@ class Filter extends Component {
             Location
           </label>
           <select
-            value={this.state.status}
+            value={this.state.location}
             onChange={(e) => this.handleChange(e)}
             id="location"
             name="location"
             className="main-dropdown"
           >
-            <option selected value="All">
+            <option value="All">
               All
             </option>
             {uniqueLocation.map((location, index) => {
@@ -55,7 +57,7 @@ class Filter extends Component {
             Property Type
           </label>
           <select
-            value={this.state.status}
+            value={this.state.propertyType}
             onChange={(e) => this.handleChange(e)}
             id="propertyType"
             name="propertyType"
@@ -70,25 +72,23 @@ class Filter extends Component {
           </select>
         </div>
         <div className="filters">
-          <label for="propertyType" className="label">
-            Price
+          <label for="Status" className="label">
+            Status
           </label>
-          <input
-            value={this.state.min}
+          <select
+            value={this.state.status}
             onChange={(e) => this.handleChange(e)}
-            id="min"
-            name="min"
-            placeholder="Minimum"
-            className="main-dropdown-price"
-          />
-          <input
-            value={this.state.max}
-            onChange={(e) => this.handleChange(e)}
-            id="max"
-            name="max"
-            
-            className="main-dropdown-price"
-          />
+            id="status"
+            name="status"
+            className="main-dropdown"
+          >
+            <option selected value="All">
+              All
+            </option>
+            {uniqueStatus.map((status, index) => {
+              return <option value={status}>{status}</option>;
+            })}
+          </select>
         </div>
   </div>
 </div>

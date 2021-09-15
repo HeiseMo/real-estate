@@ -17,7 +17,7 @@ class Search extends Component {
 
     return (
       <div className="search-main">
-          <input name="location" value={this.state.location} onChange={ e => this.handleChange(e)} placeholder="Search by City" className="alert alert-primary"></input>
+          <input name="location" value={this.state.location} onChange={ e => this.handleChange(e)} placeholder="Search by City" className="alert alert-secondary"></input>
     </div>
     );
   }

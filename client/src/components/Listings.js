@@ -14,26 +14,26 @@ class Listings extends Component {
       let search = this.props.search;
       let location = this.props.location;
       let propertyType = this.props.propertyType;
+      let status = this.props.status;
 
       const filter = myProperties.filter(
         (item) =>
           ( location === "All" || item.location.toLowerCase().indexOf((location).toLowerCase()) !== -1) &&
-          (propertyType === "All" ||item.type === propertyType)
+          ( propertyType === "All" || item.type === propertyType)  &&
+          ( status === "All" || item.status === status)
       );
-console.log(filter)
       let filteredProperties = myProperties.filter(
           (property) => {
               return property.location.toLowerCase().indexOf((search || location).toLowerCase()) !== -1;
             }
       ); 
-      console.log(filteredProperties) 
         
     return (
         <div className="listings-container">
       <div className="listings-main">
           {filter.map((property, index) =>{
               return(
-                <Card propId={property.propid} livingroom={property.livingroom} bedroom={property.bed} bathroom={property.shower} location={property.location} /> 
+                <Card propId={property.propid} status={property.status} livingroom={property.livingroom} bedroom={property.bed} bathroom={property.shower} location={property.location} /> 
               )
           })}
           </div>
