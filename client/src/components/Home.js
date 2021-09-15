@@ -12,8 +12,8 @@ class Home extends Component {
     this.state = {
       properties: Properties,
       search: "",
-      location: "",
-      propertyType: "",
+      location: "All",
+      propertyType: "All",
       max: 9000000,
       min: 0,
     };
